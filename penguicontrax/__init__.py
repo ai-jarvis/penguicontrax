@@ -137,6 +137,9 @@ def index():
 def hidden():
     return render_template('index.html', user=g.user, showhidden=True)
 
+@app.route('/help')
+def help():
+    return render_template('help.html', user=g.user)
 
 @app.route('/report')
 @uncacheable_response
@@ -218,6 +221,7 @@ js = Bundle('jquery-1.11.0.js',
             'typeahead.bundle.js',
             'lodash.min.js',
             'can.jquery.js',
+            'modal.js',
             filters='rjsmin', output='build/tuxtrax-%(version)s.js')
 
 css = Bundle('ptrax.css', output='build/tuxtrax-%(version)s.css')
